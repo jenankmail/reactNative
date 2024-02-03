@@ -10,10 +10,12 @@ import chatScreen from './screen/chatScreen';
 import HomeTitle from './components/Title/homeTitle';
 import ChatTitle from './components/Title/chatTitle';
 import addChat from './screen/addChat';
+import EditProfile from './components/EditProfile';
+import OtherPerson from './components/OtherPerson';
 const Stack = createNativeStackNavigator();
 
 const globalScreenOptions = {
-  headerStyle: { backgroundColor: "#2C6BED" },
+  headerStyle: { backgroundColor: "#D5B895" },
   headerTitleStyle: { color: "white" },
   headerTintColor: "white",
 };
@@ -25,6 +27,9 @@ const App = () => {
         <Stack.Screen name="login" component={logIN} />
         <Stack.Screen name="registor" component={registorScreen} />
         <Stack.Screen name="addChat" component={addChat} />
+        <Stack.Screen name="editProfile" component={EditProfile} />
+        <Stack.Screen name="otherPerson" component={OtherPerson} />
+
 
         <Stack.Screen
           name="Home"
@@ -37,7 +42,7 @@ const App = () => {
           name="chatScreen"
           component={chatScreen}
           options={({ navigation }) => ({
-            headerTitle: () => <ChatTitle navigation={navigation} photoURL="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvdG98ZW58MHx8MHx8fDA%3D" />,
+            headerTitle: () => <ChatTitle navigation={navigation} />,
           })}
         />
         <Stack.Screen name="about" component={about} />

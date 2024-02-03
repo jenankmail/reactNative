@@ -10,18 +10,16 @@ const registorScreen = ({navigation}) => {
     const[imgUrl,setImgUrl]=useState("");
     const registerNew = () => {
       createUserWithEmailAndPassword(auth, email, password) // Use createUserWithEmailAndPassword correctly
-          .then(authUser => {
-              authUser.user.updateProfile({
-                  displayName: name,
-                  photoURL: imgUrl || "https://cdn1.iconfinder.com/data/icons/app-user-interface-flat/64/user_man_user_interface_app_person-512.png"
-              })
-                  .then(() => {
-                      console.log("User profile updated successfully");
-                  })
-                  .catch((error) => {
-                      console.error("Error updating user profile:", error);
-                  });
-          })
+          .then(() => {
+                     
+            db.collection("users").doc("userid").set({
+                    username: name,
+                    password: password, 
+                    email: email, 
+                    imageURL:imgUrl
+            })})
+                 
+          
           .catch(error => alert(error.message));
   };
   return (
@@ -56,7 +54,7 @@ paddingTop:50,
  },
 text:{
     padding:20,
-    color:"black",
+    color:"#A67B5B",
     fontWeight:"bold",
     fontSize:22,
 },
@@ -66,7 +64,7 @@ input:{
     padding:10,
     margin:5,
     borderWidth:0.2,
-        borderColor:"#2C6BED",
+        borderColor:"#D5B895",
 },
 inputContianer:{
 

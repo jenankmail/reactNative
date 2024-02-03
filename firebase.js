@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword,signOut,signInWithEmailAndPassword } from 'firebase/auth';
 import "firebase/firestore";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore,firestore ,collection} from "firebase/firestore";
 import "firebase/auth";
 
 const firebaseConfig = {
@@ -19,4 +19,15 @@ const app = initializeApp(firebaseConfig);
 // Get the Auth instance from the initialized app
 const auth = getAuth(app);
 const db = getFirestore(app);
-export {  auth , db  };
+
+const addUser = async () => {
+  await db.collection('users').add({
+    name: 'John Doe',
+    age: 30,
+  });
+};
+
+
+
+
+export {  auth , db ,addUser, collection  };

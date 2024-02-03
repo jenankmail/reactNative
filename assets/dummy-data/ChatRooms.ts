@@ -2,7 +2,7 @@ export default [{
   id: '1',
   users: [{
     id: 'u1',
-    name: 'الملازم الأول محمد ',
+    name: ' محمد ',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u2',
@@ -19,7 +19,7 @@ export default [{
   id: '231231231231231',
   users: [{
     id: 'u1',
-    name: 'الملازم الأول محمد ',
+    name: '  محمد ',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u3',
@@ -35,7 +35,7 @@ export default [{
   id: '3',
   users: [{
     id: 'u1',
-    name: 'الملازم الأول محمد ',
+    name: 'محمد ',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u4',
@@ -52,7 +52,7 @@ export default [{
   id: '4',
   users: [{
     id: 'u1',
-    name: 'الملازم الأول محمد ',
+    name: ' محمد ',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u5',
@@ -68,7 +68,7 @@ export default [{
   id: '5',
   users: [{
     id: 'u1',
-    name: 'الملازم الأول محمد ',
+    name: ' محمد ',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u6',
@@ -85,7 +85,7 @@ export default [{
   id: '6',
   users: [{
     id: 'u1',
-    name: 'الملازم الأول محمد ',
+    name: ' محمد ',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u7',
@@ -101,7 +101,7 @@ export default [{
   id: '7',
   users: [{
     id: 'u1',
-    name: 'الملازم الأول محمد ',
+    name: ' محمد ',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u8',
@@ -117,7 +117,7 @@ export default [{
   id: '8',
   users: [{
     id: 'u1',
-    name: 'الأمين العام محمد ',
+    name: ' محمد ',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u9',
@@ -133,7 +133,7 @@ export default [{
   id: '9',
   users: [{
     id: 'u1',
-    name: 'الملازم الأول محمد ',
+    name: ' محمد ',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u10',
@@ -145,4 +145,5 @@ export default [{
     content: 'Meet me at the same place',
     createdAt: '2020-09-25T15:40:00.000Z',
   },
+  
 }]

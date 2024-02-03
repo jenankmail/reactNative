@@ -33,7 +33,7 @@ const signIn=()=>{
 
   return (
     <View style={stylies.container}> 
-    <Image source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Signal-Logo.svg/1200px-Signal-Logo.svg.png'}} style={stylies.image}/>
+    <Image source={{uri:'https://www.gcc-sg.org/Style%20Library/Images/logo-x2.png'}} style={stylies.image}/>
     <View >
         <TextInput 
         placeholder='email' value={email} onChangeText={(text)=>setEmail(text)} style={stylies.inputContianer} />
@@ -63,16 +63,16 @@ const stylies=StyleSheet.create({
     },
     registorButton:{
         backgroundColor:"white",
-        color:"#2C6BED",
+        color:"#D5B895",
         borderRadius:2,
-        borderWidth:1,
-        borderColor:"#2C6BED",
+        borderWidth:2,
+        borderColor:"#D5B895",
         margin:10,
         padding:8,
     },
     image:{
-      width:120,
-      height:120,
+      width:150,
+      height:150,
       borderRadius:10,
      marginBottom:20
     },
@@ -81,8 +81,8 @@ const stylies=StyleSheet.create({
      height:40,
      padding:10,
      margin:5,
-     borderWidth:0.5,
-     borderColor:"#2C6BED",
+     borderWidth:1,
+     borderColor:"#D5B895",
     },
 })
 
