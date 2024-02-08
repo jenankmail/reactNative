@@ -1,31 +1,37 @@
-import { View, Text ,StyleSheet,TextInput,Button} from 'react-native'
+import { View, Text ,StyleSheet,TextInput,Button,KeyboardAvoidingView} from 'react-native'
 import React, { useState ,useLayoutEffect } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-
-import {auth} from '../firebase';
+import { doc, setDoc } from "firebase/firestore"; 
+import { db } from '../Firebase/firebase-config ';
+import {auth} from '../Firebase/firebase-config ';
 const registorScreen = ({navigation}) => {
     const[name,setName]=useState("");
     const[email,setEmail]=useState("");
     const[password,setPassword]=useState("");
     const[imgUrl,setImgUrl]=useState("");
-    const registerNew = () => {
-      createUserWithEmailAndPassword(auth, email, password) // Use createUserWithEmailAndPassword correctly
-          .then(() => {
-                     
-            db.collection("users").doc("userid").set({
-                    username: name,
-                    password: password, 
-                    email: email, 
-                    imageURL:imgUrl
-            })})
-                 
-          
-          .catch(error => alert(error.message));
-  };
+    
+const registerNew = async () => {
+  try {
+    const authUser = await createUserWithEmailAndPassword(auth, email, password);
+    
+    // Store user data in Firestore
+    await setDoc(doc(db, "users", authUser.user.uid), {
+      uid: authUser.user.uid,
+      displayName: name,
+      email: email,
+      photoURL: imgUrl || 'https://pbs.twimg.com/profile_images/1042111463748513793/LczSTzT8_400x400.jpg'
+   });
+    
+    console.log('User registered successfully.');
+  } catch (error) {
+    console.error('Error registering user:', error.message);
+    // You can handle the error here (e.g., display an error message to the user)
+  }
+};
   return (
-    <View style={stylies.continar}>
+    <KeyboardAvoidingView behavior="height" style={stylies.continar} >
         <Text style={stylies.text}>
-            Create a Signal account
+            Create a GCC account
         </Text>
         <View style={stylies.inputContianer}>
           <TextInput placeholder='Full Name' 
@@ -42,7 +48,8 @@ const registorScreen = ({navigation}) => {
 }}>
         <Button title='Register' onPress={registerNew} />
         </View>
-    </View>
+        <View style={{height:80}}/>
+    </KeyboardAvoidingView>
   )
 }
 const stylies=StyleSheet.create({
@@ -54,9 +61,9 @@ paddingTop:50,
  },
 text:{
     padding:20,
-    color:"#A67B5B",
+    color:"black",
     fontWeight:"bold",
-    fontSize:22,
+    fontSize:20,
 },
 input:{
     width:250,

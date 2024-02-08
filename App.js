@@ -24,20 +24,21 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={globalScreenOptions}>
+       
         <Stack.Screen name="login" component={logIN} />
         <Stack.Screen name="registor" component={registorScreen} />
         <Stack.Screen name="addChat" component={addChat} />
         <Stack.Screen name="editProfile" component={EditProfile} />
         <Stack.Screen name="otherPerson" component={OtherPerson} />
-
-
         <Stack.Screen
           name="Home"
           component={Home}
           options={({ navigation }) => ({
             headerTitle: () => <HomeTitle navigation={navigation} />,
           })}
-        />         
+        />   
+
+             
         <Stack.Screen
           name="chatScreen"
           component={chatScreen}

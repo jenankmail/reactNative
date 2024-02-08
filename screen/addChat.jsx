@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button, Alert } from 'react-native';
-import { collection, addDoc } from '../firebase'; // Import collection and addDoc
-import db from '../firebase'; // Import the db object directly
+import { db } from '../Firebase/firebase-config ';
+import { doc, setDoc } from "firebase/firestore"; 
+
 
 const addChat = ({ navigation }) => {
   const [input, setInput] = useState("");
 
   const createChat = async () => {
-    try {
-      const docRef = await addDoc(db.collection("charts"), {
-        chatName: input,
-      });
-      console.log("Document written with ID: ", docRef.id);
-      setInput('');
-      Alert.alert('Success', 'Chat added successfully');
-    } catch (error) {
-      Alert.alert('Error', error.message);
-    }
+    await setDoc(doc(db, "chats", `${input}+12345`), {
+      chatName: input,
+      imageUrl:"https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+      lastMessage:"message",
+      time:"11:00 am"
+    });
+    setInput("");
+    navigation.navigater("Home");
   };
+  
+  
+
   
 
   return (

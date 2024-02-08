@@ -1,15 +1,18 @@
-import { View, Text ,StyleSheet} from 'react-native'
+import { View, Text ,StyleSheet, ScrollView,KeyboardAvoidingView} from 'react-native'
 import React from 'react'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { auth } from '../../Firebase/firebase-config ';
 const myId='u1';
-const Message = ({massege}) => {
-  const isMe = massege.user.id === myId;
+const Message = ({ id , message , email , enterChat}) => {
+  const isMe = auth.currentUser.email;
   return (
-    <View style={[styles.container,
-    {backgroundColor: isMe ?"lightgrey":"#3777f0"
-    , marginLeft:isMe?"auto":10,marginRight:isMe?10:"auto"}]}>
-      <Text style={{Color: isMe?"black":"white"}} >{massege.content}</Text>
+   
+  <View behavior="height" key={id} style={[styles.container,
+    {backgroundColor: isMe === email?"#3777f0":"lightgrey"
+    , marginLeft:isMe === email?10:"auto",marginRight:isMe === email?"auto":10}]}>
+      <Text style={{Color: isMe?"black":"white"}} >{message}</Text>
     </View>
+   
   )
 }
 const styles=StyleSheet.create({

@@ -3,29 +3,23 @@ import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import styles from "./styles";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-export default function ChatRoomItems({ chatRoom }) {
-  const user = chatRoom.users[1];
+export default function ChatRoomItems({ id , chatName , enterChat,imageChat,time,lastMessage}) {
   const Navigation = useNavigation();
   const onPress = () => {
-    Navigation.navigate("chatScreen", { user: user });
+   Navigation.navigate("chatScreen", { chatName:chatName , id:id ,imageChat:imageChat});
   };
   return (
-    <Pressable onPress={onPress} style={styles.container}>
-      <Image source={{ uri: user.imageUri }} style={styles.img2} />
+    <Pressable onPress={onPress} style={styles.container} key={id}>
+      <Image source={{ uri: imageChat }} style={styles.img2} />
 
-      {chatRoom.newMessages ? (
-        <View style={styles.badegContianer}>
-          <Text style={styles.badegText}>{chatRoom.newMessages}</Text>
-        </View>
-      ) : null}
       <View style={styles.rightContianer}>
         <View style={styles.row}>
-          <Text style={styles.name}>{user.name}</Text>
-          <Text style={styles.text}>11:11 am</Text>
+          <Text style={styles.name}>{chatName}</Text>
+          <Text style={styles.text}>{time}</Text>
         </View>
         <Text numberOfLines={1} style={styles.text}>
           {" "}
-          {chatRoom.lastMessage.content}
+            {lastMessage}   
         </Text>
       </View>
     </Pressable>

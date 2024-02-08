@@ -7,7 +7,7 @@ import { useRoute } from "@react-navigation/native";
 import styles from "../ChatRoomItems/styles";
 const chatTitle = ({navigation}) => {
   const route = useRoute();
-  const { user } = route.params;
+  const {chatName,imageChat} = route.params;
   const { width } = useWindowDimensions();
   const calling=()=>{
    alert("calling function");
@@ -31,21 +31,21 @@ const chatTitle = ({navigation}) => {
     );
   }
   const displayOtherPerson=()=>{
-navigation.navigate("otherPerson")  }
+navigation.navigate("otherPerson", { chatName ,imageChat})  }
   return (
     <View
       style={{
         flexDirection: "row",
         justifyContent: "space-between",
         width: width - 50,
-        paddingRight: 30,
+        paddingLeft: 30,
         alignItems: "center",
         marginLeft: -20,
       }}
     >
       <Pressable onPress={displayOtherPerson} >
       <Image
-        source={{ uri: user.imageUri }}
+        source={{ uri: imageChat }}
         style={{ width: 40, height: 40, borderRadius: 30 }}
       />
             </Pressable>
@@ -58,7 +58,7 @@ navigation.navigate("otherPerson")  }
           marginLeft: 10,
         }}
       >
-        {user.name}
+        {chatName}
       </Text>
       <Pressable onPress={vedioCalling}>
       <FontAwesome

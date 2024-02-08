@@ -1,11 +1,20 @@
 import { View, Text ,Image,StyleSheet} from 'react-native'
 import React from 'react'
-
-const otherPerson = () => {
+import { useRoute } from "@react-navigation/native";
+import { useLayoutEffect } from 'react';
+const otherPerson = ({navigation}) => {
+  const route = useRoute();
+  const {chatName,imageChat} = route.params;
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: true, // Hide the header title
+      title:""
+    });
+  }, []);
   return (
     <View style={stylies.contianer}>
-      <Text style={stylies.text}>name</Text>
-      <Image source={{uri:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fHww"}}
+      <Text style={stylies.text}>{chatName}</Text>
+      <Image source={{uri:imageChat}}
     style={stylies.image}/>
       <Text>0597477150</Text>
     </View>
